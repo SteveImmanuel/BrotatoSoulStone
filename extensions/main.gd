@@ -8,6 +8,8 @@ func _ready():
 	ModLoaderUtils.log_info("Ready", MOD_LOG)
 
 func _on_player_died(_p_player:Player) -> void:
+	ModLoaderUtils.log_info("Player died", MOD_LOG)
+	
 	if RunData.revive_remaining > 0:
 		_is_reviving = true
 		_player_life_bar.hide()
@@ -15,6 +17,8 @@ func _on_player_died(_p_player:Player) -> void:
 		RunData.current_wave -= 1
 		_wave_cleared_label.text = 'REVIVE'
 		clean_up_room(false, false, false)
+		_wave_timer.stop()
+		_wave_timer.tick_timer.stop()
 		_end_wave_timer.start()
 		ModLoaderUtils.log_info("Reviving, remaining revive: %s" % RunData.revive_remaining, MOD_LOG)
 	else:
