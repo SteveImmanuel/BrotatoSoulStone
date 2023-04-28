@@ -12,4 +12,4 @@ A mod for Brotato for revival functionality
 ## How it Works
 This mod modifies the main gameloop signal that is triggered when the player died. I added a new key in the `RunData.effects` variables called `soulstone` to keep track of the number of remaining revival.
 
-Contrary to how item works in Brotato, **Soul Stone** will decrease by one each from your inventory each time you die. If you run out of **Soul Stone**, then you die for real.
+Contrary to how item works in Brotato, **Soul Stone** will decrease by one from your inventory each time you die. If you run out of **Soul Stone**, then you die for real.
