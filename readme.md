@@ -2,7 +2,7 @@
 
 A mod for Brotato for revival functionality
 
-- Added new item called **Soul Stone** in legendary tier with starting cost of `350`
+- Added new item called **Soul Stone** in rare tier with starting cost of `350`
 - Modified game loop to make reviving possible
 
 ## Requirements
