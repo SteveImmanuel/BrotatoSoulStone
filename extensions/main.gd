@@ -9,19 +9,18 @@ func _ready():
 
 func _on_player_died(_p_player) -> void:
 	ModLoaderUtils.log_info("Player died", MOD_LOG)
-	var revive_stats = RunData.get_revive_stats()
-	print(revive_stats)
-	if revive_stats[0] > 0:
+	if RunData.effects['soulstone'] > 0:
+		var revive_item = RunData.get_revive_item()
 		_is_reviving = true
 		_player_life_bar.hide()
-		RunData.remove_item(revive_stats[1])
+		RunData.remove_item(revive_item)
 		RunData.current_wave -= 1
 		_wave_cleared_label.text = 'REVIVE'
 		clean_up_room(false, false, false)
 		_wave_timer.stop()
 		_wave_timer.tick_timer.stop()
 		_end_wave_timer.start()
-		ModLoaderUtils.log_info("Reviving, remaining revive: %s" % (revive_stats[0] - 1), MOD_LOG)
+		ModLoaderUtils.log_info("Reviving, remaining revive: %s" % RunData.effects['soulstone'], MOD_LOG)
 	else:
 		ModLoaderUtils.log_info("Revive unavailable, die for real", MOD_LOG)
 		._on_player_died(_p_player)
