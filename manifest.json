@@ -1,10 +1,11 @@
 {
 	"name": "SoulStone",
 	"namespace": "SteveImm",
-	"version_number": "0.0.1",
+	"version_number": "0.2.3",
 	"description": "Revival item that let's you return to the start of the last wave before you die",
 	"website_url": "https://github.com/SteveImmanuel/BrotatoSoulStone",
 	"dependencies": [
+		"Darkly77-ContentLoader"
 	],
 	"extra": {
 		"godot": {
