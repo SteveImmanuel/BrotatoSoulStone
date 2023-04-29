@@ -1,21 +1,23 @@
 extends "res://main.gd"
 
 const MOD_LOG = "SteveImm-SoulStone | main.gd"
+const SOULSTONE_DATA_PATH = "res://mods-unpacked/SteveImm-SoulStone/content/items/soulstone/soulstone_data.tres"
 
 var _is_reviving = false
+var _soul_stone_item: Resource
 
 func _ready():
+	_soul_stone_item = load(SOULSTONE_DATA_PATH)
 	ModLoaderUtils.log_info("Ready", MOD_LOG)
 
 func _on_player_died(_p_player) -> void:
 	ModLoaderUtils.log_info("Player died", MOD_LOG)
 	if RunData.effects['soulstone'] > 0:
-		var revive_item = RunData.get_revive_item()
 		_is_reviving = true
 		_player_life_bar.hide()
-		RunData.remove_item(revive_item)
+		RunData.remove_item(_soul_stone_item)
 		RunData.current_wave -= 1
-		_wave_cleared_label.text = 'REVIVE'
+		_wave_cleared_label.text = tr("REVIVE_REMAIN").format({"revive_remain": RunData.effects['soulstone']})
 		clean_up_room(false, false, false)
 		_wave_timer.stop()
 		_wave_timer.tick_timer.stop()
