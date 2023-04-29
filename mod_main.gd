@@ -14,10 +14,11 @@ func _init(modLoader = ModLoader):
 	# Add extensions
 	modLoader.install_script_extension(ext_dir + "main.gd")
 	modLoader.install_script_extension(ext_dir + "singletons/run_data.gd")
+	modLoader.install_script_extension(ext_dir + "ui/menus/run/difficulty_selection/difficulty_selection.gd")
 
 	# Add translations
 	modLoader.add_translation_from_resource(trans_dir + "soulstone_text.en.translation")
-
+	
 func _ready():
 	var ContentLoader = get_node("/root/ModLoader/Darkly77-ContentLoader/ContentLoader")
 	var content_dir = dir + "content_data/"
