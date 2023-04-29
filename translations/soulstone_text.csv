@@ -1,3 +1,5 @@
 keys,en
 ITEM_SOULSTONE,Soul Stone
 DESC_SOULSTONE,Revive you to the start of the current wave if you die
+LABEL_INIT_SOULSTONE,Initial Soul Stone:
+REVIVE_REMAIN,REMAINING REVIVE: {revive_remain}
